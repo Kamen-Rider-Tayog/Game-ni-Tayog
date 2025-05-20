@@ -37,60 +37,59 @@ function validateAll() {
 	const validateBtn = document.getElementById("validateContainer");
 	const rightDiv = document.querySelector(".rightDiv");
 	const feedbackButton = document.getElementById("feedbackButton");
+	const clickGroup = document.getElementById("clickGroup");
 
 	rightDiv.classList.add("feedback-visible");
 	validateBtn.classList.add("hidden");
-	feedback.classList.remove("hidden");
 
 	const isCorrect =
-		drop1?.dataset.id === "3" && // <html>
-		drop2?.dataset.id === "2" && // </head>
-		drop3?.dataset.id === "4" && // <body>
-		drop4?.dataset.id === "1" && // <h1>
-		drop5?.dataset.id === "5"; // </html>
+		drop1?.dataset.id === "3" &&
+		drop2?.dataset.id === "2" &&
+		drop3?.dataset.id === "4" &&
+		drop4?.dataset.id === "1" &&
+		drop5?.dataset.id === "5";
 
 	if (isCorrect) {
 		message.textContent = "✅ Correct! All items are in the right places.";
 		feedback.classList.add("correct");
 		feedback.classList.remove("incorrect");
+		rightDiv.classList.add("feedback-visible");
 
 		feedbackButton.textContent = "Complete";
 		feedbackButton.onclick = () => {
 			alert("✅ Completed! You may now proceed.");
+			window.location.href = "index.html";
 		};
 	} else {
 		message.textContent = "❌ Wrong Answer! Try Again.";
 		feedback.classList.add("incorrect");
 		feedback.classList.remove("correct");
+		rightDiv.classList.add("feedback-visible");
 
 		feedbackButton.textContent = "Try Again";
 		feedbackButton.onclick = tryAgain;
 	}
+
+	feedback.style.opacity = 1;
+	feedback.style.pointerEvents = "auto";
 }
 
 function tryAgain() {
 	const rightDiv = document.querySelector(".rightDiv");
 	const feedback = document.getElementById("feedback");
+	const validateBtn = document.getElementById("validateContainer");
 	const feedbackButton = document.getElementById("feedbackButton");
 
 	rightDiv.classList.remove("feedback-visible");
-	document.getElementById("validateContainer").classList.remove("hidden");
-	feedback.classList.add("hidden");
+	validateBtn.classList.remove("hidden");
+
 	feedback.classList.remove("correct", "incorrect");
+	feedback.style.opacity = 0;
+	feedback.style.pointerEvents = "none";
+
+	document.querySelectorAll(".drop-zone").forEach((zone) => (zone.innerHTML = ""));
+	document.querySelectorAll(".click-item").forEach((item) => item.classList.remove("hidden"));
 
 	feedbackButton.textContent = "Try Again";
 	feedbackButton.onclick = tryAgain;
-
-	document
-		.querySelectorAll(".drop-zone")
-		.forEach((zone) => (zone.innerHTML = ""));
-	document
-		.querySelectorAll(".click-item")
-		.forEach((item) => item.classList.remove("hidden"));
 }
-
-feedback.style.opacity = 0;
-feedback.classList.add("hidden");
-setTimeout(() => {
-	feedback.style.opacity = 1;
-}, 10);

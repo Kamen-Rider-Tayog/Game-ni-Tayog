@@ -8,6 +8,11 @@
 	</head>
 	<body>
 		<div class="leftDiv">
+			<div class="instructions">
+				<strong>Instructions:</strong><br />
+				Click on the correct HTML tags into the empty boxes to complete the
+				code. When done, click <strong>"Validate"</strong> to check your answer.
+			</div>
 			<img src="images/character.png" alt="character" id="character" />
 		</div>
 		<div class="rightDiv">
@@ -46,7 +51,7 @@
 			</div>
 
 			<div class="bottom-group">
-				<div class="click-group">
+				<div class="click-group" id="clickGroup">
 					<div class="click-zone">
 						<div class="click-item" data-id="1">&lt;h1&gt;</div>
 					</div>
@@ -63,10 +68,10 @@
 						<div class="click-item" data-id="5">&lt;/html&gt;</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="button-container" id="validateContainer">
-				<button onclick="validateAll()">Validate</button>
+				<div class="button-container" id="validateContainer">
+					<button onclick="validateAll()">Validate</button>
+				</div>
 			</div>
 		</div>
 
