@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Game ni Tayog</title>
+		<link rel="stylesheet" href="game.css" />
+	</head>
+	<body>
+		<div class="leftDiv">
+			<img src="images/character.png" alt="character" id="character" />
+		</div>
+		<div class="rightDiv">
+			<div class="zone-group">
+				<div class="drop-group" id="dropGroup">
+					<div class="drop-group" id="dropGroup">
+						<div>&lt;!DOCTYPE html&gt;</div>
+						<div class="indent-1">
+							<span class="drop-zone" id="drop1"></span>
+						</div>
+						<div class="indent-2">&lt;head&gt;</div>
+						<div class="indent-2">
+							<span class="drop-zone" id="drop2"></span>
+						</div>
+						<div class="indent-2">
+							<span class="drop-zone" id="drop3"></span>
+						</div>
+						<div class="indent-3 line-flex">
+							<span class="drop-zone" id="drop4"></span>
+							<span>Hello, World! &lt;/h1&gt;</span>
+						</div>
+
+						<div class="indent-2">&lt;/body&gt;</div>
+						<div class="indent-1">
+							<span class="drop-zone" id="drop5"></span>
+						</div>
+					</div>
+				</div>
+
+				<div id="feedback">
+					<div class="feedback-message" id="feedbackMessage"></div>
+					<div class="button-container">
+						<button onclick="tryAgain()" id="feedbackButton">Try Again</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="bottom-group">
+				<div class="click-group">
+					<div class="click-zone">
+						<div class="click-item" data-id="1">&lt;h1&gt;</div>
+					</div>
+					<div class="click-zone">
+						<div class="click-item" data-id="2">&lt;/head&gt;</div>
+					</div>
+					<div class="click-zone">
+						<div class="click-item" data-id="3">&lt;html&gt;</div>
+					</div>
+					<div class="click-zone">
+						<div class="click-item" data-id="4">&lt;body&gt;</div>
+					</div>
+					<div class="click-zone">
+						<div class="click-item" data-id="5">&lt;/html&gt;</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="button-container" id="validateContainer">
+				<button onclick="validateAll()">Validate</button>
+			</div>
+		</div>
+
+		<script src="game.js"></script>
+	</body>
+</html>
